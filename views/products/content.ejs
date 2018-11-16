@@ -1,0 +1,32 @@
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+
+            <% for(var i=0; i < products.length; i++) {%>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img class="product-image" src="images/<%= products[i].image %>" alt="<%= products[i].name %>">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <%= products[i].name %>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <% if(products[i].quantity > 0) { %>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToCart(<%= products[i].id %>)">Buy</button>
+                                </div>
+                            <% } else { %>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Not available</button>
+                                </div>
+                            <% } %>
+                            <small class="text-muted"><%= products[i].price %> USD</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
+        </div>
+    </div>
+</div>
